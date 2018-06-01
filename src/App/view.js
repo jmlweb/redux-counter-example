@@ -37,27 +37,24 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledBox = styled.div`
-  width: 300px;
+  width: 400px;
   max-width: 100%;
 `;
 
-const AppView = ({ current, handleReset, handleAdd }) => (
+const AppView = ({
+  current, handleReset, handleAdd, handleRandom,
+}) => (
   <StyledWrapper>
     <StyledBox>
-      <Display>{current || '0'}</Display>
+      <Display>{current || 0}</Display>
       <ButtonBar>
-        <Button onClick={handleAdd} value="-2">
-          -2
-        </Button>
         <Button onClick={handleAdd} value="-1">
           -1
         </Button>
         <Button onClick={handleReset}>Reset</Button>
+        <Button onClick={handleRandom}>Random</Button>
         <Button onClick={handleAdd} value="1">
           +1
-        </Button>
-        <Button onClick={handleAdd} value="2">
-          +2
         </Button>
       </ButtonBar>
     </StyledBox>
@@ -65,13 +62,14 @@ const AppView = ({ current, handleReset, handleAdd }) => (
 );
 
 AppView.defaultProps = {
-  current: '0',
+  current: 0,
 };
 
 AppView.propTypes = {
-  current: PropTypes.string,
+  current: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   handleReset: PropTypes.func.isRequired,
   handleAdd: PropTypes.func.isRequired,
+  handleRandom: PropTypes.func.isRequired,
 };
 
 export default AppView;
