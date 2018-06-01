@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 
 import View from './view';
-import { counterReset, counterAdd } from '../redux/actions';
+import { counterAsyncReset, counterAdd } from '../redux/actions';
 
 const mapStateToProps = state => ({
-  current: state.counter.current,
+  current: state.counter.current.toString(),
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleReset: () => dispatch(counterReset()),
+  handleReset: () => dispatch(counterAsyncReset()),
   handleAdd: e => dispatch(counterAdd(e.target.value)),
 });
 

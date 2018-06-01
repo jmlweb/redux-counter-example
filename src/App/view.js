@@ -44,7 +44,7 @@ const StyledBox = styled.div`
 const AppView = ({ current, handleReset, handleAdd }) => (
   <StyledWrapper>
     <StyledBox>
-      <Display>{current || 0}</Display>
+      <Display>{current || '0'}</Display>
       <ButtonBar>
         <Button onClick={handleAdd} value="-2">
           -2
@@ -65,11 +65,11 @@ const AppView = ({ current, handleReset, handleAdd }) => (
 );
 
 AppView.defaultProps = {
-  current: 0,
+  current: '0',
 };
 
 AppView.propTypes = {
-  current: PropTypes.number,
+  current: PropTypes.string,
   handleReset: PropTypes.func.isRequired,
   handleAdd: PropTypes.func.isRequired,
 };
