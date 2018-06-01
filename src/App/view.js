@@ -41,17 +41,15 @@ const StyledBox = styled.div`
   max-width: 100%;
 `;
 
-const AppView = ({
-  current, handleReset, handleAdd, handleSubtract,
-}) => (
+const AppView = ({ current, handleReset, handleAdd }) => (
   <StyledWrapper>
     <StyledBox>
       <Display>{current || 0}</Display>
       <ButtonBar>
-        <Button onClick={handleSubtract} value="2">
+        <Button onClick={handleAdd} value="-2">
           -2
         </Button>
-        <Button onClick={handleSubtract} value="1">
+        <Button onClick={handleAdd} value="-1">
           -1
         </Button>
         <Button onClick={handleReset}>Reset</Button>
@@ -74,7 +72,6 @@ AppView.propTypes = {
   current: PropTypes.number,
   handleReset: PropTypes.func.isRequired,
   handleAdd: PropTypes.func.isRequired,
-  handleSubtract: PropTypes.func.isRequired,
 };
 
 export default AppView;

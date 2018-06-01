@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import View from './view';
-import { counterReset, counterAdd, counterSubtract } from '../redux/actions';
+import { counterReset, counterAdd } from '../redux/actions';
 
 class App extends Component {
   static propTypes = {
@@ -11,19 +11,9 @@ class App extends Component {
   handleAdd = (e) => {
     this.props.handleAdd(e.target.value);
   };
-  handleSubtract = (e) => {
-    this.props.handleSubtract(e.target.value);
-  };
   render() {
     const { current, handleReset } = this.props;
-    return (
-      <View
-        current={current}
-        handleReset={handleReset}
-        handleAdd={this.handleAdd}
-        handleSubtract={this.handleSubtract}
-      />
-    );
+    return <View current={current} handleReset={handleReset} handleAdd={this.handleAdd} />;
   }
 }
 
@@ -34,7 +24,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   handleReset: counterReset,
   handleAdd: counterAdd,
-  handleSubtract: counterSubtract,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
