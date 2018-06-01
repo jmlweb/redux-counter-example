@@ -8,6 +8,9 @@ const counterReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case COUNTER_RESET:
       return initialState;
+    case COUNTER_ADD:
+      // return Object.assign({}, state, { current: state.current + payload });
+      return { ...state, current: state.current + payload };
     default:
       return state;
   }
