@@ -1,3 +1,0 @@
-export const COUNTER_RESET = 'COUNTER/RESET';
-export const COUNTER_ADD = 'COUNTER/ADD';
-export const COUNTER_SUBTRACT = 'COUNTER_SUBTRACT';
