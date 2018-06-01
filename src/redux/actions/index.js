@@ -5,4 +5,5 @@ export {
   counterReset,
   counterAdd,
   counterSubtract,
+  default as counterAC,
 } from './counter';

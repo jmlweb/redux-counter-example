@@ -12,12 +12,18 @@ export const counterReset = () => ({
   type: COUNTER_RESET,
 });
 
-export const counterAdd = payload => ({
+export const counterAdd = (payload = 1) => ({
   type: COUNTER_ADD,
-  payload,
+  payload: Math.min(payload, 5),
 });
 
-export const counterSubtract = payload => ({
+export const counterSubtract = (payload = 1) => ({
   type: COUNTER_SUBTRACT,
-  payload,
+  payload: Math.min(payload, 5),
 });
+
+export default {
+  counterReset,
+  counterAdd,
+  counterSubtract,
+};

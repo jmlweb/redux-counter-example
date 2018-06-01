@@ -2,11 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import View from './view';
+import { counterReset } from '../redux/actions';
 
-const App = ({ counter }) => <View counter={counter} />;
+const App = ({ current, handleReset }) => <View handleReset={handleReset} current={current} />;
 
 const mapStateToProps = state => ({
-  counter: state.counter.current,
+  current: state.counter.current,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = {
+  handleReset: counterReset,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
