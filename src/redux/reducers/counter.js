@@ -11,6 +11,8 @@ const counterReducer = (state = initialState, { type, payload }) => {
     case COUNTER_ADD:
       // return Object.assign({}, state, { current: state.current + payload });
       return { ...state, current: state.current + payload };
+    case COUNTER_SUBTRACT:
+      return { ...state, current: state.current - payload };
     default:
       return state;
   }
